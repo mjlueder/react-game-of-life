@@ -177,7 +177,7 @@ class Game extends React.Component {
     render() {
         const { cells, /*interval,*/ isRunning } = this.state;
         return (
-            <div>
+            <div className='page'>
                 <div className="Board"
                     style={{ width: WIDTH, height: HEIGHT, backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`}}
                     onClick={this.handleClick}
@@ -192,7 +192,11 @@ class Game extends React.Component {
                 </div>
 
                 <div className="controls">
-                    Update every <input value={this.state.interval} onChange={this.handleIntervalChange} /> msec
+                  <div className='interval'>
+                    Update every 
+                    <input value={this.state.interval} onChange={this.handleIntervalChange} /> 
+                    msec
+                  </div>
                     {isRunning ?
                         <button className="button" onClick={this.stopGame}>Stop</button> :
                         <button className="button" onClick={this.runGame}>Run</button>

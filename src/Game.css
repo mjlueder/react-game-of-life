@@ -1,7 +1,12 @@
 body {
-  --cell-size: 20;
-  --width: 800;
-  --height: 600;
+  background-color: rgb(17, 17, 84);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Board {  
@@ -10,9 +15,30 @@ body {
   background-color: #000;
   background-image: linear-gradient(#333 1px, transparent 1px),    
     linear-gradient(90deg, #333 1px, transparent 1px);
+  border: 6px solid gray;
 }
 
 .Cell {  
   background: #ccc;  
   position: absolute;
+}
+
+.controls {
+  background-color: rgb(197, 197, 197);
+  text-align: center;
+  margin-top: 40px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.controls button {
+  padding: 4px 8px;
+}
+
+.interval input {
+  margin: 4px;
+  padding: 4px;
 }
