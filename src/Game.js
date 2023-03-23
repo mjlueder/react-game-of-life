@@ -1,5 +1,6 @@
 import React from "react";
 import './Game.css'
+import Cell from "./Cell";
 
 const CELL_SIZE = 20, WIDTH = 800, HEIGHT = 600
 
@@ -61,16 +62,25 @@ class Game extends React.Component {
     this.setState({ cells: this.makeCells() });  
   }
   
+  
 
-  render() {    
+  render() {  
+    const { cells } = this.state;  
     return (      
       <div>        
         <div 
           className="Board"    
-          style={{ width: WIDTH, height: HEIGHT, backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`}}
+          style={{ 
+            width: WIDTH, 
+            height: HEIGHT, 
+            backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`
+          }}
           onClick={this.handleClick}
           ref={(n) => { this.boardRef = n; }}
-        >       
+        >
+          {cells.map(cell => (
+            <Cell x={cell.x} y={cell.y} key={`${cell.x},${cell.y}`}/>
+          ))}
         </div>      
       </div>    
     );  
