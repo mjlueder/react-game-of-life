@@ -175,7 +175,7 @@ class Game extends React.Component {
     }
 
     render() {
-        const { cells, interval, isRunning } = this.state;
+        const { cells, /*interval,*/ isRunning } = this.state;
         return (
             <div>
                 <div className="Board"
