@@ -5,6 +5,43 @@ import Cell from "./Cell";
 const CELL_SIZE = 20, WIDTH = 800, HEIGHT = 600
 
 class Game extends React.Component {  
+  state = {    
+    cells: [],    
+    interval: 100,    
+    isRunning: false,  
+  }
+  
+  runGame = () => {    
+    this.setState({ isRunning: true });    
+    this.runIteration();
+  }
+
+  stopGame = () => {    
+    this.setState({ isRunning: false }); 
+    if (this.timeoutHandler) {      
+      window.clearTimeout(this.timeoutHandler);      
+      this.timeoutHandler = null;    
+    }  
+  }
+
+  runIteration() {    
+    console.log('running iteration');    
+    let newBoard = this.makeEmptyBoard();
+    // TODO: Add logic for each iteration here.
+    this.board = newBoard;    
+    this.setState({ cells: this.makeCells() });
+    this.board = newBoard;    
+    this.setState({ cells: this.makeCells() });
+    this.timeoutHandler = window.setTimeout(() => {      
+      this.runIteration();    
+    }, 
+    this.state.interval);  
+  }
+
+  handleIntervalChange = (event) => {    
+    this.setState({ interval: event.target.value });  
+  }
+
   constructor() {    
     super();    
     this.rows = HEIGHT / CELL_SIZE;    
@@ -81,7 +118,18 @@ class Game extends React.Component {
           {cells.map(cell => (
             <Cell x={cell.x} y={cell.y} key={`${cell.x},${cell.y}`}/>
           ))}
-        </div>      
+        </div>    
+        <div className="controls">          
+          Update every <input value={this.state.interval}              onChange={this.handleIntervalChange} /> msec          {isRunning ?            
+            <button className="button" onClick={this.stopGame}>
+                Stop
+            </button> 
+            :            
+            <button className="button" onClick={this.runGame}>
+              Run
+            </button>          
+          }        
+        </div>  
       </div>    
     );  
   }
