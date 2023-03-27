@@ -1,13 +1,15 @@
-# Conway's 'Game of Life'
+# [✨ Play here ✨](https://mjlueder-game-of-life.netlify.app/)
+
+## Conway's 'Game of Life'
 
 This project was based on a code-along from [freeCodeCamp](https://www.freecodecamp.org/news/create-gameoflife-with-react-in-one-hour-8e686a410174)
 
 ## Todo's
 
--[x] Randomly generated cell colors
--[ ] Style text beneath board
--[ ] Add explanation/instructions for user
--[ ] Make game responsive
+[x] Randomly generated cell colors
+[ ] Style text beneath board
+[ ] Add explanation/instructions for user
+[ ] Make game responsive
 
 ## The Game
 
