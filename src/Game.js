@@ -38,4 +38,23 @@ class Game extends React.Component {
     isRunning: false,
     interval: 100,
   }
+
+  makeEmptyBoard () {
+    let board = []
+    for (let y = 0; y < this.rows; y++) {
+      board[y] = []
+      for (let x = 0; x < this.cols; x++) {
+        board[y][x] = false
+      }
+    }
+    return board
+  }
+
+  getElementOffset(){
+
+  }
+
+
+
+  
 }
