@@ -179,24 +179,27 @@ class Game extends React.Component {
         return (
             <div className='page'>
                 <div className="Board"
-                    style={{ width: WIDTH, height: HEIGHT, backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`}}
+                    style={{ width: WIDTH, 
+                        height: HEIGHT, 
+                        backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`
+                    }}
                     onClick={this.handleClick}
                     ref={(n) => { this.boardRef = n; }}>
 
                     {cells.map(cell => (
                         <Cell 
-                          x={cell.x} y={cell.y} 
-                          key={`${cell.x},${cell.y}`}
+                            x={cell.x} y={cell.y} 
+                            key={`${cell.x},${cell.y}`}
                         />
                     ))}
                 </div>
 
                 <div className="controls">
-                  <div className='interval'>
+                    <div className='interval'>
                     Update every 
                     <input value={this.state.interval} onChange={this.handleIntervalChange} /> 
                     msec
-                  </div>
+                </div>
                     {isRunning ?
                         <button className="button" onClick={this.stopGame}>Stop</button> :
                         <button className="button" onClick={this.runGame}>Run</button>

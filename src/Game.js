@@ -164,16 +164,15 @@ class Game extends React.Component {
     const { cells, isRunning } = this.state
     return (
       <div className='page'>
-        <div className='board'
-          style={{ 
-            width: WIDTH, 
-            height: HEIGHT, 
-            backgroundSize: `${CELL_SIZE}px` `${CELL_SIZE}px` 
-          }} 
-          onClick={this.handleClick}
-          ref={(n) => { this.boardRef = n }}
+        <div className="Board"
+            style={{ width: WIDTH, 
+              height: HEIGHT, 
+              backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`
+            }}
+            onClick={this.handleClick}
+            ref={(n) => { this.boardRef = n; }}>
 
-          { cells.map(cell => (
+          {cells.map(cell => (
             <Cell 
               x={cell.x} y={cell.y}
               key={`${cell.x},${cell.y}`}
