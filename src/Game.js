@@ -87,5 +87,19 @@ class Game extends React.Component {
     this.setState({ cells: this.makeCells()})
   }
 
+  runGame = () => {
+    this.setState({isRunning: true})
+    this.runIteration()
+  }
+
+  stopGame = () => {
+    this.setState({isRunning: false})
+    if (this.timeoutHandler) {
+      window.clearTimeout(this.timeoutHandler)
+      this.timeoutHandler = null
+    }
+  }
+
   
+
 }
