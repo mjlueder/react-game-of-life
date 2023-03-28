@@ -142,6 +142,10 @@ class Game extends React.Component {
     return neighbors
   }
 
+  handleIntervalChange = (event) => {
+    this.setState({ interval: event.target.value})
+  }
+
   
 
 }
