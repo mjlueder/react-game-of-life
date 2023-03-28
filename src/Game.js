@@ -151,6 +151,15 @@ class Game extends React.Component {
     this.setState({ cells: this.makeCells() })
   }
 
+  handleRandom = () => {
+    for (let y = 0; y < this.rows; y++) {
+      for (let x = 0; x < this.cols; x++) {
+        this.board[y][x] = (Math.random() >= 0.65)
+      }
+    }
+    this.setState({ cells: this.makeCells() })
+  }
+
   
 
 }
