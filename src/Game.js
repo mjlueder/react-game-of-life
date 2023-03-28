@@ -191,7 +191,17 @@ class Game extends React.Component {
             />
             msec
           </div>
-          
+          {isRunning ? 
+            <button className="button" onClick={this.stopGame}>
+              Stop</button>  
+            :
+            <button className="button" onClick={this.runGame}>
+              Run</button>
+          }
+          <button className="button" onClick={this.handleRandom}>
+            Random</button>
+          <button className="button" onClick={this.handleClear}>
+            Clear</button>
         </div>
       </div>
     )
