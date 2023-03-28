@@ -146,6 +146,11 @@ class Game extends React.Component {
     this.setState({ interval: event.target.value})
   }
 
+  handleClear = () => {
+    this.board = this.makeEmptyBoard()
+    this.setState({ cells: this.makeCells() })
+  }
+
   
 
 }
