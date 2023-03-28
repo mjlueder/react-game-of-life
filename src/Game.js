@@ -182,7 +182,16 @@ class Game extends React.Component {
         >
         </div>
 
-        
+        <div className="controls">
+          <div className="intervals">
+            Update every
+            <input type="text" 
+              value={this.state.interval} 
+              onChange={this.handleIntervalChange}
+            />
+            msec
+          </div>
+          
         </div>
       </div>
     )
